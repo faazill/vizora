@@ -1,62 +1,34 @@
-// Firebase Configuration (Replace with your config)
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    databaseURL: "YOUR_DATABASE_URL",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
-};
+const apiKey = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API key
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+document.getElementById("searchBtn").addEventListener("click", function() {
+  const city = document.getElementById("cityInput").value;
+  if (city) {
+    fetchWeather(city);
+  } else {
+    alert("Please enter a city name.");
+  }
+});
 
-// Fetch Performance Score
-function fetchPerformanceScore() {
-    database.ref('/performanceScore').on('value', (snapshot) => {
-        const score = snapshot.val();
-        document.getElementById('score').textContent = score;
-    });
+async function fetchWeather(city) {
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error("City not found.");
+    }
+    const data = await response.json();
+    displayWeather(data);
+  } catch (error) {
+    alert(error.message);
+  }
 }
 
-// Fetch Chart Data and Render Charts
-function fetchChartData() {
-    database.ref('/chartData').once('value', (snapshot) => {
-        const data = snapshot.val();
-        renderCharts(data);
-    });
-}
+function displayWeather(data) {
+  const cityName = data.name;
+  const temperature = data.main.temp;
+  const description = data.weather[0].description;
 
-// Render Charts
-function renderCharts(data) {
-    const chartIds = ['chart1', 'chart2', 'chart3', 'chart4', 'chart5', 'chart6'];
-    chartIds.forEach((chartId, index) => {
-        const ctx = document.getElementById(chartId).getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['A', 'B', 'C', 'D', 'E'],
-                datasets: [{
-                    label: `Chart ${index + 1}`,
-                    data: data[chartId],
-                    backgroundColor: ['#004aad', '#007bff', '#00aaff', '#33ccff', '#99e6ff']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true
-            }
-        });
-    });
+  document.getElementById("cityName").textContent = cityName;
+  document.getElementById("temperature").textContent = `Temperature: ${temperature}°C`;
+  document.getElementById("description").textContent = `Condition: ${description}`;
 }
-
-// Initialize Dashboard
-function initDashboard() {
-    fetchPerformanceScore();
-    fetchChartData();
-}
-
-// Run on Load
-window.onload = initDashboard;
