@@ -1,4 +1,4 @@
-/* Reset styles */
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,20 +12,16 @@ body {
     color: #333;
 }
 
-section {
-    padding: 60px 20px;
+/* Navigation Bar */
+nav {
+    background-color: #0066cc;
+    padding: 10px 0;
     text-align: center;
-}
-
-h1, h2, h3 {
-    color: #2d3e50;
 }
 
 nav ul {
     list-style: none;
-    background-color: #0066cc;
-    text-align: center;
-    padding: 15px 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -34,7 +30,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     font-size: 18px;
 }
@@ -43,86 +39,105 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Animation Styles */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Hero Section */
+.hero {
+    background-color: #0066cc;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
 }
 
-.animate-text {
-    animation: fadeInUp 1s ease-out forwards;
-    opacity: 0;
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
 }
 
-/* Specific section styles */
-.home {
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #0066cc;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cta-btn:hover {
     background-color: #f0faff;
 }
 
-.about {
-    background-color: #e7f1fc;
+/* Sections */
+.section {
+    padding: 60px 20px;
+    text-align: center;
 }
 
-.products {
-    background-color: #cfe7ff;
+h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
-.pricing {
-    background-color: #b3d7f9;
+.service-card {
+    display: inline-block;
+    width: 30%;
+    background-color: #f4f7ff;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-.case-studies {
-    background-color: #a4c6f2;
-}
-
-.contact {
-    background-color: #93b9e3;
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .pricing-table {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .pricing-item {
-    background-color: #fff;
+    background-color: #f0f7ff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 250px;
+    text-align: center;
 }
 
 .pricing-item h3 {
     font-size: 24px;
-    color: #333;
+    margin-bottom: 10px;
 }
 
 .pricing-item p {
-    font-size: 18px;
-    color: #666;
+    font-size: 20px;
 }
 
+.testimonials p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+/* Contact Form */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     align-items: center;
-    max-width: 600px;
-    margin: 0 auto;
+    gap: 15px;
 }
 
 form input, form textarea {
     padding: 10px;
     font-size: 16px;
-    width: 100%;
-    max-width: 500px;
+    width: 80%;
+    max-width: 600px;
     border: 2px solid #ddd;
     border-radius: 5px;
 }
