@@ -3,115 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visro - Identity System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Animated Website</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">
-                Visro
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#signup" class="btn">Get Started</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to Visro</h1>
-            <p>Your Identity System Made Simple</p>
-            <a href="#features" class="btn btn-primary">Explore More</a>
+    <!-- Home Section -->
+    <section id="home" class="section home">
+        <div class="content">
+            <h1 class="animate-text">Welcome to Our Website</h1>
+            <p class="animate-text">We bring you amazing solutions, perfectly designed.</p>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Our Features</h2>
-            <div class="feature-cards">
-                <div class="card">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Secure Identity</h3>
-                    <p>Protect your data with the highest level of security.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <h3>Cloud Sync</h3>
-                    <p>Sync your identity across devices seamlessly.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Easy Integration</h3>
-                    <p>Integrate with third-party services easily and securely.</p>
-                </div>
-            </div>
+    <!-- About Us Section -->
+    <section id="about" class="section about">
+        <div class="content">
+            <h2 class="animate-text">About Us</h2>
+            <p>We are a team of passionate professionals creating beautiful experiences.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section products">
+        <div class="content">
+            <h2 class="animate-text">Our Products</h2>
+            <p class="animate-text">Explore our diverse range of products designed to elevate your life.</p>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>Our Pricing</h2>
-            <div class="pricing-cards">
-                <div class="card">
+    <section id="pricing" class="section pricing">
+        <div class="content">
+            <h2 class="animate-text">Pricing</h2>
+            <div class="pricing-table">
+                <div class="pricing-item">
                     <h3>Basic</h3>
-                    <div class="price">$0/month</div>
-                    <ul>
-                        <li>1 Identity</li>
-                        <li>Basic Support</li>
-                    </ul>
-                    <a href="#signup" class="btn btn-secondary">Start Now</a>
+                    <p>$29/month</p>
+                    <p>Basic features for individuals</p>
                 </div>
-                <div class="card">
-                    <h3>Pro</h3>
-                    <div class="price">$9/month</div>
-                    <ul>
-                        <li>Unlimited Identities</li>
-                        <li>Premium Support</li>
-                    </ul>
-                    <a href="#signup" class="btn btn-secondary">Start Now</a>
+                <div class="pricing-item">
+                    <h3>Standard</h3>
+                    <p>$49/month</p>
+                    <p>Most popular plan for businesses</p>
                 </div>
-                <div class="card">
-                    <h3>Enterprise</h3>
-                    <div class="price">$29/month</div>
-                    <ul>
-                        <li>Advanced Features</li>
-                        <li>Priority Support</li>
-                    </ul>
-                    <a href="#signup" class="btn btn-secondary">Start Now</a>
+                <div class="pricing-item">
+                    <h3>Premium</h3>
+                    <p>$99/month</p>
+                    <p>All features for large enterprises</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Have questions? We're here to help.</p>
-            <a href="mailto:support@visro.com" class="btn btn-primary">Email Us</a>
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="section case-studies">
+        <div class="content">
+            <h2 class="animate-text">Case Studies</h2>
+            <p>Discover how we've transformed businesses and lives with our solutions.</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Visro. All rights reserved.</p>
+    <!-- Contact Us Section -->
+    <section id="contact" class="section contact">
+        <div class="content">
+            <h2 class="animate-text">Contact Us</h2>
+            <form action="#" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
         </div>
-    </footer>
+    </section>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>
