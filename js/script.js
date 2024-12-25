@@ -21,44 +21,41 @@ function fetchPerformanceScore() {
     });
 }
 
-// Chart Data
-function createCharts() {
-    const ctx1 = document.getElementById('chart1').getContext('2d');
-    const ctx2 = document.getElementById('chart2').getContext('2d');
-    const ctx3 = document.getElementById('chart3').getContext('2d');
-    const ctx4 = document.getElementById('chart4').getContext('2d');
-    const ctx5 = document.getElementById('chart5').getContext('2d');
-    const ctx6 = document.getElementById('chart6').getContext('2d');
+// Fetch Chart Data and Render Charts
+function fetchChartData() {
+    database.ref('/chartData').once('value', (snapshot) => {
+        const data = snapshot.val();
+        renderCharts(data);
+    });
+}
 
-    const chartConfig = {
-        type: 'bar',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [{
-                label: 'Performance',
-                data: [65, 59, 80, 81, 56, 55],
-                backgroundColor: ['#004aad', '#007bff', '#00aaff', '#00dfff', '#33ccff', '#99e6ff']
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    };
-
-    // Create Charts
-    new Chart(ctx1, chartConfig);
-    new Chart(ctx2, chartConfig);
-    new Chart(ctx3, chartConfig);
-    new Chart(ctx4, chartConfig);
-    new Chart(ctx5, chartConfig);
-    new Chart(ctx6, chartConfig);
+// Render Charts
+function renderCharts(data) {
+    const chartIds = ['chart1', 'chart2', 'chart3', 'chart4', 'chart5', 'chart6'];
+    chartIds.forEach((chartId, index) => {
+        const ctx = document.getElementById(chartId).getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['A', 'B', 'C', 'D', 'E'],
+                datasets: [{
+                    label: `Chart ${index + 1}`,
+                    data: data[chartId],
+                    backgroundColor: ['#004aad', '#007bff', '#00aaff', '#33ccff', '#99e6ff']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true
+            }
+        });
+    });
 }
 
 // Initialize Dashboard
 function initDashboard() {
     fetchPerformanceScore();
-    createCharts();
+    fetchChartData();
 }
 
 // Run on Load
