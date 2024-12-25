@@ -1,53 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="dashboard">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <h2>Dashboard</h2>
-            <ul>
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#performance">Performance</a></li>
-                <li><a href="#charts">Charts</a></li>
-            </ul>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="content">
-            <!-- Header -->
-            <header class="header">
-                <h1>Performance Dashboard</h1>
-            </header>
-
-            <!-- Performance Score -->
-            <section class="performance">
-                <h2>Performance Score</h2>
-                <div class="score-box">
-                    <span id="score">0</span>
-                    <p>out of 100</p>
-                </div>
-            </section>
-
-            <!-- Charts -->
-            <section class="charts">
-                <div class="chart" id="chart1-container"><canvas id="chart1"></canvas></div>
-                <div class="chart" id="chart2-container"><canvas id="chart2"></canvas></div>
-                <div class="chart" id="chart3-container"><canvas id="chart3"></canvas></div>
-                <div class="chart" id="chart4-container"><canvas id="chart4"></canvas></div>
-                <div class="chart" id="chart5-container"><canvas id="chart5"></canvas></div>
-                <div class="chart" id="chart6-container"><canvas id="chart6"></canvas></div>
-            </section>
-        </main>
+  <div class="container">
+    <h1>Weather App</h1>
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <button id="searchBtn">Get Weather</button>
+    <div id="weatherInfo">
+      <h2 id="cityName"></h2>
+      <p id="temperature"></p>
+      <p id="description"></p>
     </div>
-    <script src="js/scripts.js"></script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
