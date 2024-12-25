@@ -3,21 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visro - Hello World</title>
+    <title>Your Company - Leading Solutions for Your Business</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Visro</h1>
-        <p>Your Offline Identity System</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">YourCompany</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#integrations">Integrations</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login" class="btn">Log In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Empower Your Business with Our Advanced Solutions</h1>
+            <p>Streamline your operations and engage customers like never before.</p>
+            <a href="#signup" class="btn">Get Started</a>
+        </div>
     </header>
-    <main>
-        <button id="helloButton">Click Me!</button>
-        <p id="output"></p>
-    </main>
-    <footer>
-        <p>© 2024 Visro. All rights reserved.</p>
-    </footer>
-    <script src="js/script.js"></script>
-</body>
-</html>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Our Features</h2>
+            <div class="feature-cards">
+                <div class="card">
+                    <i class="fas fa-robot"></i>
+                    <h3>No Code Chat Bot Builder</h3>
+                    <p>Build advanced chatbots without any coding skills. Automate interactions and provide real-time responses to users.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>WhatsApp eCommerce</h3>
+                    <p>Integrate your shop with WhatsApp for seamless customer shopping experiences.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Bulk Messaging & Team Inbox</h3>
+                    <p>Send thousands of WhatsApp messages in a click & assign multiple agents for incoming chats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section id="integrations" class="integrations">
+        <div class="container">
+            <h2>Native Integrations</h2>
+            <div class="integration-logos">
+                <img src="assets/images/google-sheets.png" alt="Google Sheets">
+                <img src="assets/images/shopify.png" alt="Shopify">
+                <img src="assets/images/woocommerce.png" alt="WooCommerce">
+                <!-- Add more logos as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-cards">
+                <div class="card">
+                    <h3>Basic</h3>
+                    <p class="price">$19/month</p>
+                    <ul>
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                        <li>Feature 3</li>
+                    </ul>
+                    <a href="#signup" class="btn">Choose Plan</a>
+                </div>
+                <div class="card">
+                    <h3>Pro</h3>
+                    <p class="price">$49/month</p>
+                    <ul>
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                        <li>Feature 3</li>
+                    </ul>
+                    <a href="#signup" class="btn">Choose Plan</a>
+                </div>
+                <div class="card">
+                    <h3>Enterprise</h3>
+                    <p class="price">$99/month</p>
+                    <ul>
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                        <li>Feature 3</li>
+                    </ul>
+                    <a href="#signup" class="btn">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="https://formspree.io/f/{your-form-id}" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <!-- Add more social icons as needed -->
+            </ul>
+        </div>
+    </footer 
