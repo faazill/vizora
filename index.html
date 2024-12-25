@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 <body>
     <div class="dashboard">
@@ -16,41 +18,36 @@
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#performance">Performance</a></li>
                 <li><a href="#charts">Charts</a></li>
-                <li><a href="#settings">Settings</a></li>
             </ul>
         </aside>
 
         <!-- Main Content -->
-        <div class="main-content">
+        <main class="content">
             <!-- Header -->
-            <header>
+            <header class="header">
                 <h1>Performance Dashboard</h1>
             </header>
 
             <!-- Performance Score -->
-            <section id="performance" class="performance-section">
+            <section class="performance">
                 <h2>Performance Score</h2>
-                <div class="performance-score">
+                <div class="score-box">
                     <span id="score">0</span>
-                    <p>Performance out of 100</p>
+                    <p>out of 100</p>
                 </div>
             </section>
 
-            <!-- Charts Section -->
-            <section id="charts" class="charts-section">
-                <h2>Analytics</h2>
-                <div class="chart-container">
-                    <canvas id="chart1"></canvas>
-                    <canvas id="chart2"></canvas>
-                    <canvas id="chart3"></canvas>
-                    <canvas id="chart4"></canvas>
-                    <canvas id="chart5"></canvas>
-                    <canvas id="chart6"></canvas>
-                </div>
+            <!-- Charts -->
+            <section class="charts">
+                <div class="chart" id="chart1-container"><canvas id="chart1"></canvas></div>
+                <div class="chart" id="chart2-container"><canvas id="chart2"></canvas></div>
+                <div class="chart" id="chart3-container"><canvas id="chart3"></canvas></div>
+                <div class="chart" id="chart4-container"><canvas id="chart4"></canvas></div>
+                <div class="chart" id="chart5-container"><canvas id="chart5"></canvas></div>
+                <div class="chart" id="chart6-container"><canvas id="chart6"></canvas></div>
             </section>
-        </div>
+        </main>
     </div>
-
     <script src="js/scripts.js"></script>
 </body>
 </html>
