@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Website</title>
+    <title>AllUnite Clone</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -11,47 +11,59 @@
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#case-studies">Case Studies</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section home">
-        <div class="content">
-            <h1 class="animate-text">Welcome to Our Website</h1>
-            <p class="animate-text">We bring you amazing solutions, perfectly designed.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to AllUnite</h1>
+            <p>Connecting businesses and people in a seamless way.</p>
+            <a href="#services" class="cta-btn">Explore Our Services</a>
         </div>
     </section>
 
     <!-- About Us Section -->
     <section id="about" class="section about">
         <div class="content">
-            <h2 class="animate-text">About Us</h2>
-            <p>We are a team of passionate professionals creating beautiful experiences.</p>
+            <h2>About Us</h2>
+            <p>We aim to bring businesses and individuals together, creating a community of collaboration.</p>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="section products">
+    <!-- Services Section -->
+    <section id="services" class="section services">
         <div class="content">
-            <h2 class="animate-text">Our Products</h2>
-            <p class="animate-text">Explore our diverse range of products designed to elevate your life.</p>
+            <h2>Our Services</h2>
+            <div class="service-card">
+                <h3>Business Solutions</h3>
+                <p>Providing businesses with the tools they need to succeed.</p>
+            </div>
+            <div class="service-card">
+                <h3>Consulting</h3>
+                <p>Expert advice and strategic insights for growth.</p>
+            </div>
+            <div class="service-card">
+                <h3>Collaboration Tools</h3>
+                <p>Building platforms that help teams collaborate effectively.</p>
+            </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
     <section id="pricing" class="section pricing">
         <div class="content">
-            <h2 class="animate-text">Pricing</h2>
+            <h2>Our Pricing</h2>
             <div class="pricing-table">
                 <div class="pricing-item">
                     <h3>Basic</h3>
                     <p>$29/month</p>
-                    <p>Basic features for individuals</p>
+                    <p>Access to essential features for individuals</p>
                 </div>
                 <div class="pricing-item">
                     <h3>Standard</h3>
@@ -61,31 +73,30 @@
                 <div class="pricing-item">
                     <h3>Premium</h3>
                     <p>$99/month</p>
-                    <p>All features for large enterprises</p>
+                    <p>All-inclusive plan for large enterprises</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="section case-studies">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
         <div class="content">
-            <h2 class="animate-text">Case Studies</h2>
-            <p>Discover how we've transformed businesses and lives with our solutions.</p>
+            <h2>What Our Clients Say</h2>
+            <p>"AllUnite has revolutionized the way our business operates!"</p>
+            <p>"Amazing experience. Would recommend to everyone."</p>
         </div>
     </section>
 
     <!-- Contact Us Section -->
     <section id="contact" class="section contact">
         <div class="content">
-            <h2 class="animate-text">Contact Us</h2>
+            <h2>Contact Us</h2>
             <form action="#" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <textarea name="message" id="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
             </form>
         </div>
     </section>
