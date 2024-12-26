@@ -4,7 +4,8 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     height: 100vh;
-    overflow: auto; /* Enables vertical scrolling when content overflows */
+    overflow: auto;
+    padding-bottom: 20px; /* Ensures content does not touch the bottom edge */
 }
 
 .dashboard {
@@ -26,10 +27,10 @@ body {
 }
 
 .sidebar .logo {
-    font-family: 'Lato', sans-serif; /* Use Lato font for the logo */
-    font-weight: 1000; /* Make the font bold */
-    font-size: 30px; /* Adjust size to suit your design */
-    color: #01090f; /* Optional: Keep the logo color */
+    font-family: 'Lato', sans-serif;
+    font-weight: 1000;
+    font-size: 30px;
+    color: #01090f;
     text-align: left;
 }
 
@@ -71,37 +72,58 @@ body {
     padding: 20px;
     box-sizing: border-box;
     gap: 20px;
+    justify-content: space-between;
 }
 
 /* Header */
 .header {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(24, 14, 46);
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 15px;
+    font-family: 'Inter', sans-serif;
 }
+
+/* Modern Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 .header h2 {
     margin: 0;
-    font-size: 20px;
+    font-size: 26px;
+    font-weight: 400;
+    color: rgb(24, 14, 46);
 }
 
-.header-nav .nav-button {
-    background-color: white;
-    color: #3498db;
+
+/* Responsive Header for Smaller Screens */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .header h2 {
+        font-size: 24px;
+    }
+}
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-button {
+    background: #007BFF;
+    color: white;
     border: none;
-    padding: 8px 15px;
-    margin-left: 10px;
-    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    font-weight: bold;
 }
 
-.header-nav .nav-button:hover {
-    background-color: #ecf0f1;
+.nav-button:hover {
+    background: #0056b3;
 }
 
 /* Score Boxes */
@@ -136,7 +158,7 @@ body {
 .charts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+    gap: 20px;
 }
 
 .chart {
@@ -149,47 +171,115 @@ body {
     justify-content: center;
 }
 
-/* Main Content */
-.main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
-    gap: 20px;
-    justify-content: space-between; /* Ensures proper vertical alignment */
-}
-
-/* Footer Styling */
+/* Footer */
 .footer {
-    background-color: #3498db; /* Matches header color for consistency */
+    background-color: #3498db;
     color: white;
     text-align: center;
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 14px;
     line-height: 1.5;
-    position: relative; /* Allows space adjustment without overlapping */
 }
 
 .footer p {
-    margin: 5px 0; /* Small margins for stacked lines */
+    margin: 5px 0;
 }
 
-/* Add Space at Bottom */
-body {
-    padding-bottom: 20px; /* Ensures content does not touch the bottom edge */
+/* Enhanced Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
 }
 
-/* Adjust Charts and Score Boxes */
-.charts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+.dropbtn {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.score-boxes {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px; /* Ensures proper space between boxes */
+.dropbtn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 10px;
+    min-width: 200px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: slideIn 0.3s ease-out;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Keyframes for Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Adjusting the Timespan Dropdown */
+.timespan-dropdown {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.dropdown #billboard-1:checked ~ .timespan-dropdown,
+.dropdown #billboard-2:checked ~ .timespan-dropdown,
+.dropdown #billboard-3:checked ~ .timespan-dropdown {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Billboard Dropdown Style */
+#billboard {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
 }

@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vizora Analytics</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css"> <!-- Link to CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
-    
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Dashboard Container -->
     <div class="dashboard">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">
                 <h1>vizora</h1>
@@ -28,45 +25,40 @@
             </nav>
         </aside>
 
-        <!-- Main Content -->
         <div class="main">
-            <!-- Header -->
             <header class="header">
-                <h2>Vizora Analytics Dashboard</h2>
+                <h2>Welcome, Bhima Jewellers</h2>
                 <nav class="header-nav">
-                    <button class="nav-button">Home</button>
-                    <button class="nav-button">About</button>
-                    <button class="nav-button">Contact</button>
+                    <div class="dropdown">
+                        <button class="dropbtn" id="billboard-dropdown-button">Select Billboard</button>
+                        <div class="dropdown-content" id="billboard-dropdown">
+                            <a href="#" data-value="Billboard 1">Billboard 1</a>
+                            <a href="#" data-value="Billboard 2">Billboard 2</a>
+                            <a href="#" data-value="Billboard 3">Billboard 3</a>
+                            <a href="#" data-value="All Billboards">All Billboards</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn" id="timespan-dropdown-button" disabled>Select Time Span</button>
+                        <div class="dropdown-content" id="timespan-dropdown">
+                            <a href="#" data-value="Past Day">Past Day</a>
+                            <a href="#" data-value="Past Week">Past Week</a>
+                            <a href="#" data-value="Past Month">Past Month</a>
+                            <a href="#" data-value="Lifetime">Lifetime</a>
+                        </div>
+                    </div>
                 </nav>
             </header>
-        
-            <!-- Score Boxes -->
-            <section class="score-boxes">
-                <div class="score-box">
-                    <h3>Traffic Density</h3>
-                    <p>High</p>
-                </div>
-                <div class="score-box">
-                    <h3>Audience Reach</h3>
-                    <p>75%</p>
-                </div>
-                <div class="score-box">
-                    <h3>Engagement Rate</h3>
-                    <p>45%</p>
-                </div>
-            </section>
-        
-            <!-- Charts Section -->
+
             <section class="charts-grid">
-                <div class="chart" ><canvas id="chart1"></canvas></div>
-                <div class="chart" ><canvas id="chart2"></canvas></div>
-                <div class="chart" ><canvas id="chart3"></canvas></div>
-                <div class="chart" ><canvas id="chart4"></canvas></div>
-                <div class="chart" ><canvas id="chart5"></canvas></div>
-                <div class="chart" ><canvas id="chart6"></canvas></div>
+                <div class="chart"><canvas id="chart1"></canvas></div>
+                <div class="chart"><canvas id="chart2"></canvas></div>
+                <div class="chart"><canvas id="chart3"></canvas></div>
+                <div class="chart"><canvas id="chart4"></canvas></div>
+                <div class="chart"><canvas id="chart5"></canvas></div>
+                <div class="chart"><canvas id="chart6"></canvas></div>
             </section>
-        
-            <!-- Footer -->
+
             <footer class="footer">
                 <p>© 2024 Vizora Technologies. All Rights Reserved.</p>
                 <p>Contact us at: support@vizora.com</p>
@@ -74,6 +66,100 @@
             </footer>
         </div>
     </div>
-    <script src="js/script.js"></script> <!-- Link to JS -->
+
+    <script>
+        let selectedBillboard = '';
+        let charts = [];
+
+        // Enable the timespan dropdown only after selecting a billboard
+        document.getElementById('billboard-dropdown').addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                selectedBillboard = e.target.dataset.value;
+                document.getElementById('billboard-dropdown-button').innerText = selectedBillboard;
+                document.getElementById('timespan-dropdown-button').disabled = false;
+            }
+        });
+
+        // Update charts based on selected timespan
+        document.getElementById('timespan-dropdown').addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                const selectedTimeSpan = e.target.dataset.value;
+                document.getElementById('timespan-dropdown-button').innerText = selectedTimeSpan;
+                updateCharts(selectedTimeSpan);
+            }
+        });
+
+        // Chart data and initialization
+        const chartData = [
+            { id: "chart1", type: "bar", label: "Traffic Volume", data: [12, 19, 3, 5, 2, 3], labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
+            { id: "chart2", type: "line", label: "Engagement Trend", data: [15, 10, 8, 18, 22, 30], labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
+            { id: "chart3", type: "pie", label: "Audience Split", data: [60, 40], labels: ['Male', 'Female'] },
+            { id: "chart4", type: "doughnut", label: "Device Usage", data: [70, 30], labels: ['Mobile', 'Desktop'] },
+            { id: "chart5", type: "polarArea", label: "Traffic Sources", data: [10, 20, 15, 25], labels: ['Organic', 'Paid', 'Referral', 'Direct'] },
+            { id: "chart6", type: "radar", label: "Ad Effectiveness", data: [20, 30, 15, 10, 25], labels: ['Reach', 'Clicks', 'Conversions', 'Bounce', 'Impressions'] }
+        ];
+
+        function updateCharts(timeSpan) {
+            if (!selectedBillboard) {
+                alert('Please select a billboard first!');
+                return;
+            }
+
+            let updatedData = [];
+            if (timeSpan === 'Past Day') updatedData = [5, 10, 15, 20, 25];
+            else if (timeSpan === 'Past Week') updatedData = [25, 30, 35, 40, 45];
+            else if (timeSpan === 'Past Month') updatedData = [50, 60, 70, 80, 90];
+            else if (timeSpan === 'Lifetime') updatedData = [100, 120, 140, 160, 180];
+
+            charts.forEach((chart) => {
+                chart.data.datasets[0].data = updatedData.slice(0, chart.data.labels.length);
+                chart.update();
+            });
+        }
+
+        function initializeCharts() {
+            const canvases = document.querySelectorAll('canvas');
+            canvases.forEach((canvas) => {
+                const chartInfo = chartData.find((chart) => chart.id === canvas.id);
+                if (chartInfo) {
+                    const ctx = canvas.getContext('2d');
+                    const chart = new Chart(ctx, {
+                        type: chartInfo.type,
+                        data: {
+                            labels: chartInfo.labels,
+                            datasets: [{
+                                label: chartInfo.label,
+                                data: chartInfo.data,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: { legend: { display: true, position: 'top' } }
+                        }
+                    });
+                    charts.push(chart);
+                }
+            });
+        }
+
+        initializeCharts();
+    </script>
 </body>
 </html>
