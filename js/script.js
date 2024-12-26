@@ -1,34 +1,42 @@
-const apiKey = "935b8badc1ff4cd22e21847ef1585de1"; // Replace with your OpenWeatherMap API key
+// Example Charts using Chart.js
+const ctx1 = document.getElementById('chart1').getContext('2d');
+const ctx2 = document.getElementById('chart2').getContext('2d');
 
-document.getElementById("searchBtn").addEventListener("click", function() {
-  const city = document.getElementById("cityInput").value;
-  if (city) {
-    fetchWeather(city);
-  } else {
-    alert("Please enter a city name.");
-  }
+// Chart 1: Traffic Density
+new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+            label: 'Traffic Volume',
+            data: [12, 19, 3, 5, 2, 3, 10],
+            backgroundColor: 'rgba(52, 152, 219, 0.5)',
+            borderColor: 'rgba(52, 152, 219, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
 });
 
-async function fetchWeather(city) {
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  try {
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      throw new Error("City not found.");
+// Chart 2: Audience Engagement
+new Chart(ctx2, {
+    type: 'pie',
+    data: {
+        labels: ['Engaged', 'Not Engaged'],
+        datasets: [{
+            label: 'Audience Engagement',
+            data: [75, 25],
+            backgroundColor: ['rgba(46, 204, 113, 0.5)', 'rgba(231, 76, 60, 0.5)']
+        }]
+    },
+    options: {
+        responsive: true
     }
-    const data = await response.json();
-    displayWeather(data);
-  } catch (error) {
-    alert(error.message);
-  }
-}
-
-function displayWeather(data) {
-  const cityName = data.name;
-  const temperature = data.main.temp;
-  const description = data.weather[0].description;
-
-  document.getElementById("cityName").textContent = cityName;
-  document.getElementById("temperature").textContent = `Temperature: ${temperature}°C`;
-  document.getElementById("description").textContent = `Condition: ${description}`;
-}
+});
