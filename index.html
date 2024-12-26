@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vizora Analytics</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Charts -->
 </head>
 <body>
-  <div class="container">
-    <h1>Weather App</h1>
-    <input type="text" id="cityInput" placeholder="Enter city name">
-    <button id="searchBtn">Get Weather</button>
-    <div id="weatherInfo">
-      <h2 id="cityName"></h2>
-      <p id="temperature"></p>
-      <p id="description"></p>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">Vizora</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Traffic</a></li>
+                <li><a href="#">Demographics</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+        <header class="header">
+            <h1>Analytics Dashboard</h1>
+        </header>
+        <section class="metrics">
+            <div class="metric">
+                <h3>Traffic Density</h3>
+                <p>High</p>
+            </div>
+            <div class="metric">
+                <h3>Audience Reach</h3>
+                <p>75%</p>
+            </div>
+            <div class="metric">
+                <h3>Engagement Rate</h3>
+                <p>45%</p>
+            </div>
+        </section>
+        <section class="charts">
+            <div class="chart-container">
+                <canvas id="chart1"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart2"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
