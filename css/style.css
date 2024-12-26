@@ -1,0 +1,195 @@
+/* General Layout */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: auto; /* Enables vertical scrolling when content overflows */
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: #ffffff;
+    color: #2c3e50;
+    width: 250px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar .logo {
+    font-family: 'Lato', sans-serif; /* Use Lato font for the logo */
+    font-weight: 1000; /* Make the font bold */
+    font-size: 30px; /* Adjust size to suit your design */
+    color: #01090f; /* Optional: Keep the logo color */
+    text-align: left;
+}
+
+.sidebar .nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar .nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar .nav ul li a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .nav ul li a.active {
+    background-color: #3498db;
+    color: white;
+}
+
+.sidebar .nav ul li a:hover {
+    background-color: #ecf0f1;
+    color: #3498db;
+}
+
+/* Main Content */
+.main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+/* Header */
+.header {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.header-nav .nav-button {
+    background-color: white;
+    color: #3498db;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.header-nav .nav-button:hover {
+    background-color: #ecf0f1;
+}
+
+/* Score Boxes */
+.score-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.score-box {
+    flex: 1;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.score-box h3 {
+    margin: 0;
+    color: #3498db;
+    font-size: 18px;
+}
+
+.score-box p {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Charts Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.chart {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main Content */
+.main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+    justify-content: space-between; /* Ensures proper vertical alignment */
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #3498db; /* Matches header color for consistency */
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative; /* Allows space adjustment without overlapping */
+}
+
+.footer p {
+    margin: 5px 0; /* Small margins for stacked lines */
+}
+
+/* Add Space at Bottom */
+body {
+    padding-bottom: 20px; /* Ensures content does not touch the bottom edge */
+}
+
+/* Adjust Charts and Score Boxes */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.score-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Ensures proper space between boxes */
+}

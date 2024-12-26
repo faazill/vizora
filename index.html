@@ -4,55 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vizora Analytics</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Charts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"> <!-- Link to CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
+    
 </head>
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
-    <div class="logo">
-        <h1>Vizora</h1>
+    <!-- Dashboard Container -->
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>vizora</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-car"></i> Traffic</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Demographics</a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Header -->
+            <header class="header">
+                <h2>Vizora Analytics Dashboard</h2>
+                <nav class="header-nav">
+                    <button class="nav-button">Home</button>
+                    <button class="nav-button">About</button>
+                    <button class="nav-button">Contact</button>
+                </nav>
+            </header>
+        
+            <!-- Score Boxes -->
+            <section class="score-boxes">
+                <div class="score-box">
+                    <h3>Traffic Density</h3>
+                    <p>High</p>
+                </div>
+                <div class="score-box">
+                    <h3>Audience Reach</h3>
+                    <p>75%</p>
+                </div>
+                <div class="score-box">
+                    <h3>Engagement Rate</h3>
+                    <p>45%</p>
+                </div>
+            </section>
+        
+            <!-- Charts Section -->
+            <section class="charts-grid">
+                <div class="chart" id="chart1"><canvas></canvas></div>
+                <div class="chart" id="chart2"><canvas></canvas></div>
+                <div class="chart" id="chart3"><canvas></canvas></div>
+                <div class="chart" id="chart4"><canvas></canvas></div>
+                <div class="chart" id="chart5"><canvas></canvas></div>
+                <div class="chart" id="chart6"><canvas></canvas></div>
+            </section>
+        
+            <!-- Footer -->
+            <footer class="footer">
+                <p>© 2024 Vizora Technologies. All Rights Reserved.</p>
+                <p>Contact us at: support@vizora.com</p>
+                <p>Powered by your trusted analytics partner.</p>
+            </footer>
+        </div>
     </div>
-    <nav class="nav">
-        <ul>
-            <li><a href="#" class="active"><i class="fas fa-chart-line"></i> Analytics</a></li>
-            <li><a href="#"><i class="fas fa-car"></i> Traffic</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Demographics</a></li>
-            <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
-        </ul>
-    </nav>
-</aside>
-
-    <!-- Main Content -->
-    <main class="content">
-        <header class="header">
-            <h1>Analytics Dashboard</h1>
-        </header>
-        <section class="metrics">
-            <div class="metric">
-                <h3>Traffic Density</h3>
-                <p>High</p>
-            </div>
-            <div class="metric">
-                <h3>Audience Reach</h3>
-                <p>75%</p>
-            </div>
-            <div class="metric">
-                <h3>Engagement Rate</h3>
-                <p>45%</p>
-            </div>
-        </section>
-        <section class="charts">
-            <div class="chart-container">
-                <canvas id="chart1"></canvas>
-            </div>
-            <div class="chart-container">
-                <canvas id="chart2"></canvas>
-            </div>
-        </section>
-    </main>
-
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script> <!-- Link to JS -->
 </body>
 </html>
