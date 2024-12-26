@@ -7,20 +7,18 @@ const chartData = [
     { id: "chart6", type: "radar", label: "Ad Effectiveness", data: [20, 30, 15, 10, 25] }
 ];
 
-chartData.forEach(({ id, type, label, data }) => {
-    const ctx = document.querySelector(`#${id} canvas`).getContext("2d");
+const canvases = document.querySelectorAll('canvas');
+canvases.forEach((canvas) => {
+    const ctx = canvas.getContext('2d');
     new Chart(ctx, {
-        type,
+        type: 'bar',
         data: {
-            labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            labels: ['Red', 'Blue', 'Yellow'],
             datasets: [{
-                label,
-                data,
-                backgroundColor: "rgba(52, 152, 219, 0.5)",
-                borderColor: "rgba(52, 152, 219, 1)",
-                borderWidth: 1
+                label: 'Dataset',
+                data: [12, 19, 3],
+                backgroundColor: ['red', 'blue', 'yellow']
             }]
-        },
-        options: { responsive: true }
+        }
     });
 });
