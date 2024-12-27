@@ -27,7 +27,7 @@
 
         <div class="main">
             <header class="header">
-                <h2>Welcome, Bhima Jewellers</h2>
+                <h2>Welcome, lenskart</h2>
                 <nav class="header-nav">
                     <div class="dropdown">
                         <button class="dropbtn" id="billboard-dropdown-button">Select Billboard</button>
@@ -49,6 +49,15 @@
                     </div>
                 </nav>
             </header>
+
+            <div class="billboard-card">
+                <div class="billboard-details">
+                    <h3 id="billboard-title">Billboard 1 </h3>
+                    <p id="billboard-location"><strong>Location:</strong> Times Square, New York</p>
+                    <p id="billboard-type"><strong>Type:</strong> Digital</p>
+                    <p id="billboard-period"><strong>Active Period:</strong> Jan 2024 - Present</p>
+                </div>
+            </div>
 
             <section class="charts-grid">
                 <div class="chart"><canvas id="chart1"></canvas></div>
@@ -90,14 +99,14 @@
         });
 
         // Chart data and initialization
-        const chartData = [
-            { id: "chart1", type: "bar", label: "Traffic Volume", data: [12, 19, 3, 5, 2, 3], labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
-            { id: "chart2", type: "line", label: "Engagement Trend", data: [15, 10, 8, 18, 22, 30], labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
-            { id: "chart3", type: "pie", label: "Audience Split", data: [60, 40], labels: ['Male', 'Female'] },
-            { id: "chart4", type: "doughnut", label: "Device Usage", data: [70, 30], labels: ['Mobile', 'Desktop'] },
-            { id: "chart5", type: "polarArea", label: "Traffic Sources", data: [10, 20, 15, 25], labels: ['Organic', 'Paid', 'Referral', 'Direct'] },
-            { id: "chart6", type: "radar", label: "Ad Effectiveness", data: [20, 30, 15, 10, 25], labels: ['Reach', 'Clicks', 'Conversions', 'Bounce', 'Impressions'] }
-        ];
+    const chartData = [
+    { id: "chart1", type: "bar", label: "Traffic Volume", data: [12, 19, 3, 5, 2, 3], labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
+    { id: "chart2", type: "line", label: "Engagement Trend", data: [15, 10, 8, 18, 22, 30], labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] },
+    { id: "chart3", type: "pie", label: "Audience Split", data: [60, 40], labels: ['Male', 'Female'] },
+    { id: "chart4", type: "doughnut", label: "Device Usage", data: [70, 30], labels: ['Person', 'Vehicle'] },
+    { id: "chart5", type: "polarArea", label: "Age group", data: [10, 20, 15, 25], labels: ['Below 20', '20-30', '30-40', '40-50' , '50 above'] },
+    { id: "chart6", type: "radar", label: "Salary range of Audience", data: [20, 30, 15, 10, 25], labels: ['below 10k', '10k-40k', '40k-100k', '100k-200k', 'above 200k'] }
+];
 
         function updateCharts(timeSpan) {
             if (!selectedBillboard) {
