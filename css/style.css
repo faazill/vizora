@@ -285,33 +285,70 @@ body {
 }
 
 .billboard-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
-    gap: 15px;
+    width: 98%;
+    margin: auto;
 }
 
-.billboard-details {
-    flex: 1;
-    font-size: 14px;
+.billboard-info {
+    font-size: 0.9rem;
+    color: #555;
     line-height: 1.4;
-    color: #444;
 }
 
-.billboard-details h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    color: #2c3e50;
+.billboard-info span {
+    margin-right: 10px;
 }
 
-.billboard-details p {
+/* Traffic detail cards */
+
+.traffic-stats {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.traffic-card {
+    flex: 1;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    max-width: 300px;
+}
+
+.traffic-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.traffic-data {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
     margin: 5px 0;
-    font-size: 13px;
 }
 
+.traffic-change {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
 
+.traffic-change.positive {
+    color: #4caf50; /* Green for positive change */
+}
+
+.traffic-change.negative {
+    color: #f44336; /* Red for negative change */
+}
