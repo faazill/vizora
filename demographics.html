@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vizora Demographics</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>vizora</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="traffic.html"><i class="fas fa-car"></i> Traffic</a></li>
+                    <li><a href="demographics.html" class="active"><i class="fas fa-users"></i> Demographics</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main">
+            <header class="header">
+                <h2>Welcome, lenskart</h2>
+                <p>Explore the demographic insights of your audience.</p>
+            </header>
+
+            <section class="charts-grid">
+                <div class="chart">
+                    <canvas id="ageDistribution"></canvas>
+                </div>
+                <div class="chart">
+                    <canvas id="genderRatio"></canvas>
+                </div>
+                <div class="chart">
+                    <canvas id="locationDistribution"></canvas>
+                </div>
+                <div class="chart">
+                    <canvas id="incomeGroups"></canvas>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>© 2024 Vizora Technologies. All Rights Reserved.</p>
+                <p>Contact us at: support@vizora.com</p>
+                <p>Powered by your trusted analytics partner.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Chart data for demographics
+        const demographicsData = [
+            {
+                id: "ageDistribution",
+                type: "bar",
+                label: "Age Distribution",
+                data: [15, 20, 25, 30, 10],
+                labels: ["<18", "18-24", "25-34", "35-44", "45+"]
+            },
+            {
+                id: "genderRatio",
+                type: "pie",
+                label: "Gender Ratio",
+                data: [48, 52],
+                labels: ["Male", "Female"]
+            },
+            {
+                id: "locationDistribution",
+                type: "doughnut",
+                label: "Location Distribution",
+                data: [30, 25, 20, 15, 10],
+                labels: ["Urban", "Suburban", "Rural", "Town", "Others"]
+            },
+            {
+                id: "incomeGroups",
+                type: "polarArea",
+                label: "Income Groups",
+                data: [10, 20, 30, 25, 15],
+                labels: ["<10k", "10k-50k", "50k-100k", "100k-200k", ">200k"]
+            }
+        ];
+
+        // Initialize charts
+        function initializeDemographicsCharts() {
+            demographicsData.forEach((chartInfo) => {
+                const ctx = document.getElementById(chartInfo.id).getContext("2d");
+                new Chart(ctx, {
+                    type: chartInfo.type,
+                    data: {
+                        labels: chartInfo.labels,
+                        datasets: [{
+                            label: chartInfo.label,
+                            data: chartInfo.data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { display: true, position: "top" } }
+                    }
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", initializeDemographicsCharts);
+    </script>
+</body>
+</html>

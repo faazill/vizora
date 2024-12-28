@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vizora Traffic</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>vizora</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="traffic.html" class="active"><i class="fas fa-car"></i> Traffic</a></li>
+                    <li><a href="demographics.html"><i class="fas fa-users"></i> Demographics</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main">
+            <header class="header">
+                <h2>Traffic Insights</h2>
+            </header>
+
+            <section class="traffic-stats">
+                <div class="traffic-card">
+                    <h3>Average Speed</h3>
+                    <p class="traffic-data">45 km/h</p>
+                </div>
+                <div class="traffic-card">
+                    <h3>Traffic Peaks</h3>
+                    <p class="traffic-data">8:00 AM - 10:00 AM</p>
+                </div>
+                <div class="traffic-card">
+                    <h3>Vehicle Types</h3>
+                    <p class="traffic-data">Cars: 60%, Bikes: 30%, Others: 10%</p>
+                </div>
+            </section>
+
+            <section class="charts-grid">
+                <div class="chart"><canvas id="traffic-chart1"></canvas></div>
+                <div class="chart"><canvas id="traffic-chart2"></canvas></div>
+            </section>
+
+            <footer class="footer">
+                <p>© 2024 Vizora Technologies. All Rights Reserved.</p>
+                <p>Contact us at: support@vizora.com</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Chart Data
+        const trafficChartsData = [
+            { id: "traffic-chart1", type: "line", label: "Hourly Traffic Volume", data: [10, 20, 30, 40, 50, 60], labels: ['6 AM', '8 AM', '10 AM', '12 PM', '2 PM', '4 PM'] },
+            { id: "traffic-chart2", type: "bar", label: "Vehicle Type Distribution", data: [60, 30, 10], labels: ['Cars', 'Bikes', 'Others'] }
+        ];
+
+        trafficChartsData.forEach((chartData) => {
+            const ctx = document.getElementById(chartData.id).getContext('2d');
+            new Chart(ctx, {
+                type: chartData.type,
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: chartData.label,
+                        data: chartData.data,
+                        backgroundColor: ['rgba(54, 162, 235, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+                        borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: true, position: 'top' } }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
